@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐！</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="https://music.163.com/song/media/outer/url?id=1824020873.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <div class="music-control" onclick="toggleMusic()">
+        🎵
+    </div>
+
+    <div class="container">
+        <!-- 气球装饰 -->
+        <div class="balloons">
+            <div class="balloon">🎈</div>
+            <div class="balloon">🎈</div>
+            <div class="balloon">🎈</div>
+            <div class="balloon">🎈</div>
+            <div class="balloon">🎈</div>
+        </div>
+
+        <!-- 主要祝福内容 -->
+        <div class="card">
+            <div class="cake">
+                🎂
+            </div>
+            <h1 class="title">生日快乐！</h1>
+            <div class="message">
+                <p>亲爱的朋友：</p>
+                <p class="birthday-wish">
+                    愿你的生日充满欢乐和温馨，<br>
+                    愿你的每一天都闪耀着幸福的光芒，<br>
+                    愿你的梦想都能实现，<br>
+                    愿你的生活永远充满阳光！
+                </p>
+                <p class="signature">
+                    ——来自你的好朋友
+                </p>
+            </div>
+        </div>
+
+        <!-- 装饰元素 -->
+        <div class="decorations">
+            <span>🎉</span>
+            <span>🎊</span>
+            <span>🎁</span>
+            <span>✨</span>
+        </div>
+    </div>
+
+    <script>
+        // 音乐控制
+        let music = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+            } else {
+                music.play();
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 页面加载完成后的动画
+        window.onload = function() {
+            document.querySelector('.card').style.opacity = '1';
+            document.querySelector('.card').style.transform = 'translateY(0)';
+        }
+    </script>
+</body>
+</html>

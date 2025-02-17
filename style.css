@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.cake {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.title {
+    color: #ff6b6b;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+    line-height: 1.8;
+    color: #666;
+}
+
+.birthday-wish {
+    margin: 20px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.signature {
+    margin-top: 30px;
+    font-style: italic;
+    color: #888;
+}
+
+/* 气球动画 */
+.balloons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.balloon {
+    position: absolute;
+    font-size: 40px;
+    animation: float 4s infinite;
+}
+
+.balloon:nth-child(1) { left: 10%; animation-delay: 0s; }
+.balloon:nth-child(2) { left: 30%; animation-delay: 1s; }
+.balloon:nth-child(3) { left: 50%; animation-delay: 2s; }
+.balloon:nth-child(4) { left: 70%; animation-delay: 3s; }
+.balloon:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+/* 装饰元素 */
+.decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.decorations span {
+    position: absolute;
+    font-size: 30px;
+    animation: spin 4s infinite linear;
+}
+
+.decorations span:nth-child(1) { top: 20%; left: 20%; }
+.decorations span:nth-child(2) { top: 30%; right: 20%; }
+.decorations span:nth-child(3) { bottom: 20%; left: 30%; }
+.decorations span:nth-child(4) { bottom: 30%; right: 30%; }
+
+/* 音乐控制按钮 */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+    z-index: 1000;
+}
+
+/* 动画关键帧 */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .birthday-wish {
+        font-size: 1em;
+    }
+}
