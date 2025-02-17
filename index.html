@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 背景音乐 -->
+    <div class="music-box">
     <audio id="bgMusic" loop>
-        <source src="https://music.163.com/song/media/outer/url?id=1824020873.mp3" type="audio/mpeg">
+        <!-- 这里的 src 改成你上传的音乐文件名 -->
+        <source src="藏巴罗布 - 萨迦酒歌.mp3" type="audio/mpeg">
     </audio>
-    
-    <!-- 音乐控制按钮 -->
     <div class="music-control" onclick="toggleMusic()">
-        🎵
+        <span class="music-icon">🎵</span>
+        <span class="music-status">播放音乐</span>
     </div>
+</div>
 
     <div class="container">
         <!-- 气球装饰 -->
@@ -77,4 +78,30 @@
         }
     </script>
 </body>
+    <script>
+    let music = document.getElementById('bgMusic');
+    let musicIcon = document.querySelector('.music-icon');
+    let musicStatus = document.querySelector('.music-status');
+    let isPlaying = false;
+
+    function toggleMusic() {
+        if (isPlaying) {
+            music.pause();
+            musicIcon.style.animation = 'none';
+            musicStatus.textContent = '播放音乐';
+        } else {
+            music.play();
+            musicIcon.style.animation = 'rotate 2s linear infinite';
+            musicStatus.textContent = '暂停音乐';
+        }
+        isPlaying = !isPlaying;
+    }
+
+    // 用户首次点击页面时播放音乐
+    document.addEventListener('click', function() {
+        if (!isPlaying) {
+            toggleMusic();
+        }
+    }, { once: true });
+</script>
 </html>
